@@ -40,8 +40,12 @@ int main(void) {
 	srand(time(NULL)); //randomize
 
 	fillDeck(deck, faces, suits); // load the deck with cards.
+	
+	deal(deck); // deal cards to stdout. Check that deck is complete.
+	puts("\n ---------------------------------------");
+	
 	shuffle(deck); // randomize cards.
-	deal(deck); // deal all 52 cards to stdout.
+	deal(deck);
 
 	return 0;
 }
@@ -65,7 +69,7 @@ void fillDeck(Card* const deck, const char* faces[], const char* suits[]) {
 }
 
 /*
-* shuffle(Card* const deck)
+* shuffle()
 * Loops through the cards randomly swapping cards.
 * NOTE: Rerun this function around seven times for a better result.
 */
@@ -90,7 +94,7 @@ void deal(const Card* const deck) {
 	// The printf func %5s is spaces, %-8s separates
 	// the card names. The ternary expression checks to 
 	// see if a row of four cards have been laid down.
-	// if true, the \n is added.
+	// if false (0), the \n is added.
 	for (size_t i = 0; i < CARDS; ++i ) {
 		printf("%5s of %-8s%s", deck[i].face, deck[i].suit,
 			(i + 1) % 4 ? "  " : "\n" );
