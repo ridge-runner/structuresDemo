@@ -76,13 +76,16 @@ void fillDeck(Card* const deck, const char* faces[], const char* suits[]) {
 
 void shuffle(Card* const deck) {
 	// loop through the deck randomly swapping cards.
-	for (size_t i = 0; i < CARDS; ++i ) {
-		size_t j = rand() % CARDS; 
-		Card temp = deck[i];
-		deck[i] = deck[j];
-		deck[j] = temp;
-	}
-}
+	for (int k = 0; k < 7; k++) { // repeating seven times randomizes better.
+
+		for (size_t i = 0; i < CARDS; ++i ) {
+			size_t j = rand() % CARDS; 
+			Card temp = deck[i];
+			deck[i] = deck[j];
+			deck[j] = temp;
+		}//end for
+	}//end for
+}//shuffle()
 
 /*
 * deal()
