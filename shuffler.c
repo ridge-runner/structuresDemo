@@ -86,7 +86,11 @@ void shuffle(Card* const deck) {
 */
 
 void deal(const Card* const deck) {
-	// loop through the deck
+	// loop through the deck. 
+	// The printf func %5s is spaces, %-8s separates
+	// the card names. The ternary expression checks to 
+	// see if a row of four cards have been laid down.
+	// if true, the \n is added.
 	for (size_t i = 0; i < CARDS; ++i ) {
 		printf("%5s of %-8s%s", deck[i].face, deck[i].suit,
 			(i + 1) % 4 ? "  " : "\n" );
